@@ -1,0 +1,215 @@
+{
+  "common": {
+    "businessName": "La Rufeta",
+    "tagline": "El nuevo lugar de encuentro del barrio",
+    "reserve": "Reservar",
+    "callUs": "Llámanos",
+    "whatsapp": "WhatsApp",
+    "viewMenu": "Ver Carta",
+    "seeMore": "Ver más",
+    "close": "Cerrar",
+    "send": "Enviar",
+    "loading": "Cargando...",
+    "success": "¡Enviado!",
+    "error": "Error",
+    "required": "Requerido",
+    "optional": "Opcional",
+    "pending": "(Pendiente de confirmar)",
+    "address": "Av. del Camino de Santiago, 21, 28050 Madrid",
+    "phone": "+34 676 93 93 54",
+    "neighborhood": "Las Tablas, Madrid"
+  },
+  "nav": {
+    "home": "Inicio",
+    "menu": "Carta",
+    "reservations": "Reservas",
+    "gallery": "Galería",
+    "events": "Eventos",
+    "contact": "Contacto",
+    "legal": "Legal"
+  },
+  "home": {
+    "heroTitle": "Bienvenidos a La Rufeta",
+    "heroSubtitle": "Tu nuevo rincón en Las Tablas",
+    "heroDescription": "Un lugar donde disfrutar de buena comida, excelente ambiente y el mejor servicio del barrio.",
+    "heroCta": "Reserva tu mesa",
+    "featuresTitle": "¿Por qué elegirnos?",
+    "features": {
+      "terrace": {
+        "title": "Terraza",
+        "description": "Disfruta del buen tiempo en nuestra amplia terraza"
+      },
+      "breakfast": {
+        "title": "Desayunos",
+        "description": "Empieza el día con nuestros desayunos caseros"
+      },
+      "dailyMenu": {
+        "title": "Menú del Día",
+        "description": "Cocina tradicional a precio de barrio"
+      },
+      "tapas": {
+        "title": "Tapas y Raciones",
+        "description": "Las mejores tapas del barrio para compartir"
+      }
+    },
+    "promoTitle": "¡Tu fidelidad tiene premio!",
+    "promoSubtitle": "Tarjeta Bono La Rufeta",
+    "promoDescription": "Sella cada menú del día o desayuno. Al completar 10 sellos, el siguiente es completamente gratis.",
+    "promoCta": "¡Pide tu tarjeta!",
+    "locationTitle": "Encuéntranos en Las Tablas",
+    "locationDescription": "En el corazón del barrio, a dos pasos de ti"
+  },
+  "menu": {
+    "title": "Nuestra Carta",
+    "subtitle": "Cocina tradicional con alma de barrio",
+    "downloadPdf": "Descargar carta en PDF",
+    "askWhatsapp": "Pregunta por WhatsApp",
+    "sections": {
+      "breakfast": {
+        "title": "Desayunos",
+        "description": "De lunes a domingo, de 8:00 a 12:00"
+      },
+      "dailyMenu": {
+        "title": "Menú del Día",
+        "description": "De lunes a viernes, de 13:00 a 16:00"
+      },
+      "tapas": {
+        "title": "Tapas y Raciones",
+        "description": "Todo el día"
+      },
+      "drinks": {
+        "title": "Bebidas",
+        "description": "Cervezas, vinos, refrescos y más"
+      }
+    },
+    "placeholder": {
+      "item": "Plato ejemplo",
+      "price": "0,00 €",
+      "description": "Descripción del plato (pendiente de confirmar)"
+    },
+    "note": "Los precios y disponibilidad pueden variar. Consulta en el local."
+  },
+  "reservations": {
+    "title": "Reserva tu mesa",
+    "subtitle": "Asegura tu sitio en La Rufeta",
+    "description": "Completa el formulario y nos pondremos en contacto contigo para confirmar tu reserva. También puedes llamarnos o escribirnos por WhatsApp.",
+    "note": "Las reservas están sujetas a disponibilidad y serán confirmadas por teléfono o WhatsApp.",
+    "form": {
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre completo",
+      "phone": "Teléfono",
+      "phonePlaceholder": "Tu número de teléfono",
+      "email": "Email",
+      "emailPlaceholder": "tu@email.com",
+      "date": "Fecha",
+      "datePlaceholder": "Selecciona fecha",
+      "time": "Hora",
+      "timePlaceholder": "Selecciona hora",
+      "partySize": "Personas",
+      "partySizePlaceholder": "Número de comensales",
+      "notes": "Notas adicionales",
+      "notesPlaceholder": "Alergias, celebraciones especiales, etc.",
+      "submit": "Solicitar reserva",
+      "submitting": "Enviando..."
+    },
+    "success": {
+      "title": "¡Solicitud enviada!",
+      "message": "Hemos recibido tu solicitud. Te contactaremos pronto para confirmar tu reserva."
+    },
+    "error": {
+      "title": "Error al enviar",
+      "message": "Ha ocurrido un error. Por favor, inténtalo de nuevo o contacta con nosotros directamente."
+    },
+    "validation": {
+      "nameRequired": "El nombre es obligatorio",
+      "nameMin": "El nombre debe tener al menos 2 caracteres",
+      "phoneRequired": "El teléfono es obligatorio",
+      "phoneInvalid": "Introduce un número de teléfono válido",
+      "emailInvalid": "Introduce un email válido",
+      "dateRequired": "La fecha es obligatoria",
+      "timeRequired": "La hora es obligatoria",
+      "partySizeRequired": "El número de personas es obligatorio",
+      "partySizeMin": "Mínimo 1 persona",
+      "partySizeMax": "Máximo 20 personas. Para grupos mayores, llámanos."
+    },
+    "orContact": "O contáctanos directamente"
+  },
+  "gallery": {
+    "title": "Galería",
+    "subtitle": "Conoce La Rufeta",
+    "description": "Descubre nuestro local, nuestra terraza y nuestros platos.",
+    "placeholder": "Próximamente más fotos",
+    "uploadNote": "(Las imágenes se añadirán próximamente)"
+  },
+  "events": {
+    "title": "Eventos y Promociones",
+    "subtitle": "Entérate de todo lo que pasa en La Rufeta",
+    "loyaltyCard": {
+      "title": "Tarjeta Bono",
+      "subtitle": "Tu fidelidad tiene premio",
+      "description": "Con nuestra Tarjeta Bono, cada menú del día y cada desayuno suman. Al completar 10 sellos, el siguiente es completamente gratis. ¡Pide tu tarjeta en barra!",
+      "cta": "Pregunta en el local"
+    },
+    "noEvents": "No hay eventos programados actualmente.",
+    "stayTuned": "¡Síguenos para estar al día de novedades!"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Ven a vernos",
+    "address": {
+      "title": "Dirección",
+      "value": "Av. del Camino de Santiago, 21\n28050 Madrid"
+    },
+    "phone": {
+      "title": "Teléfono",
+      "value": "+34 676 93 93 54"
+    },
+    "hours": {
+      "title": "Horario",
+      "pending": "(Pendiente de confirmar)",
+      "weekdays": "Lunes a Viernes: --:-- - --:--",
+      "weekends": "Sábados y Domingos: --:-- - --:--"
+    },
+    "getHere": {
+      "title": "Cómo llegar",
+      "description": "Estamos en el barrio de Las Tablas, en la Avenida del Camino de Santiago. Fácil acceso en transporte público y parking cercano."
+    },
+    "mapTitle": "Encuéntranos"
+  },
+  "legal": {
+    "title": "Información Legal",
+    "privacy": {
+      "title": "Política de Privacidad",
+      "content": "En La Rufeta respetamos tu privacidad. Los datos que nos proporcionas a través del formulario de reservas se utilizan exclusivamente para gestionar tu reserva y no se comparten con terceros.\n\nResponsable: La Rufeta\nFinalidad: Gestión de reservas\nDerechos: Acceso, rectificación, supresión, limitación, portabilidad y oposición.\n\nPara ejercer tus derechos, contacta con nosotros en el teléfono +34 676 93 93 54."
+    },
+    "cookies": {
+      "title": "Política de Cookies",
+      "content": "Este sitio web utiliza cookies técnicas necesarias para su funcionamiento. Opcionalmente, utilizamos cookies de análisis para mejorar tu experiencia.\n\nCookies técnicas: Necesarias para el funcionamiento del sitio.\nCookies de análisis: Utilizamos Plausible Analytics (respetuoso con la privacidad, sin cookies persistentes).\n\nPuedes gestionar tus preferencias de cookies en cualquier momento."
+    },
+    "terms": {
+      "title": "Aviso Legal",
+      "content": "Este sitio web es propiedad de La Rufeta, establecimiento de hostelería ubicado en Av. del Camino de Santiago, 21, 28050 Madrid.\n\nLa información de este sitio tiene carácter meramente informativo. Los precios, horarios y disponibilidad pueden variar sin previo aviso.\n\nPara reservas y confirmaciones, contacta directamente con el establecimiento."
+    }
+  },
+  "cookie": {
+    "message": "Utilizamos cookies para mejorar tu experiencia.",
+    "accept": "Aceptar",
+    "decline": "Rechazar",
+    "moreInfo": "Más información"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "madeWith": "Hecho con",
+    "inMadrid": "en Las Tablas, Madrid"
+  },
+  "whatsapp": {
+    "defaultMessage": "Hola, quiero reservar en La Rufeta para [día] a las [hora] para [personas]."
+  },
+  "errors": {
+    "404": {
+      "title": "Página no encontrada",
+      "description": "La página que buscas no existe.",
+      "cta": "Volver al inicio"
+    }
+  }
+}

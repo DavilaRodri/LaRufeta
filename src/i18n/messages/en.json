@@ -1,0 +1,215 @@
+{
+  "common": {
+    "businessName": "La Rufeta",
+    "tagline": "The neighborhood's new meeting place",
+    "reserve": "Book a table",
+    "callUs": "Call us",
+    "whatsapp": "WhatsApp",
+    "viewMenu": "View Menu",
+    "seeMore": "See more",
+    "close": "Close",
+    "send": "Send",
+    "loading": "Loading...",
+    "success": "Sent!",
+    "error": "Error",
+    "required": "Required",
+    "optional": "Optional",
+    "pending": "(To be confirmed)",
+    "address": "Av. del Camino de Santiago, 21, 28050 Madrid",
+    "phone": "+34 676 93 93 54",
+    "neighborhood": "Las Tablas, Madrid"
+  },
+  "nav": {
+    "home": "Home",
+    "menu": "Menu",
+    "reservations": "Reservations",
+    "gallery": "Gallery",
+    "events": "Events",
+    "contact": "Contact",
+    "legal": "Legal"
+  },
+  "home": {
+    "heroTitle": "Welcome to La Rufeta",
+    "heroSubtitle": "Your new corner in Las Tablas",
+    "heroDescription": "A place to enjoy good food, great atmosphere, and the best service in the neighborhood.",
+    "heroCta": "Book your table",
+    "featuresTitle": "Why choose us?",
+    "features": {
+      "terrace": {
+        "title": "Terrace",
+        "description": "Enjoy the good weather on our spacious terrace"
+      },
+      "breakfast": {
+        "title": "Breakfast",
+        "description": "Start your day with our homemade breakfasts"
+      },
+      "dailyMenu": {
+        "title": "Daily Menu",
+        "description": "Traditional cuisine at neighborhood prices"
+      },
+      "tapas": {
+        "title": "Tapas & Plates",
+        "description": "The best tapas in the neighborhood to share"
+      }
+    },
+    "promoTitle": "Your loyalty is rewarded!",
+    "promoSubtitle": "La Rufeta Loyalty Card",
+    "promoDescription": "Stamp each daily menu or breakfast. After 10 stamps, the next one is completely free.",
+    "promoCta": "Get your card!",
+    "locationTitle": "Find us in Las Tablas",
+    "locationDescription": "In the heart of the neighborhood, just steps away"
+  },
+  "menu": {
+    "title": "Our Menu",
+    "subtitle": "Traditional cuisine with neighborhood soul",
+    "downloadPdf": "Download menu PDF",
+    "askWhatsapp": "Ask via WhatsApp",
+    "sections": {
+      "breakfast": {
+        "title": "Breakfast",
+        "description": "Monday to Sunday, 8:00 AM to 12:00 PM"
+      },
+      "dailyMenu": {
+        "title": "Daily Menu",
+        "description": "Monday to Friday, 1:00 PM to 4:00 PM"
+      },
+      "tapas": {
+        "title": "Tapas & Plates",
+        "description": "All day"
+      },
+      "drinks": {
+        "title": "Drinks",
+        "description": "Beers, wines, soft drinks and more"
+      }
+    },
+    "placeholder": {
+      "item": "Sample dish",
+      "price": "€0.00",
+      "description": "Dish description (to be confirmed)"
+    },
+    "note": "Prices and availability may vary. Check at the restaurant."
+  },
+  "reservations": {
+    "title": "Book your table",
+    "subtitle": "Secure your spot at La Rufeta",
+    "description": "Fill out the form and we'll contact you to confirm your reservation. You can also call us or message us on WhatsApp.",
+    "note": "Reservations are subject to availability and will be confirmed by phone or WhatsApp.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your full name",
+      "phone": "Phone",
+      "phonePlaceholder": "Your phone number",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "date": "Date",
+      "datePlaceholder": "Select date",
+      "time": "Time",
+      "timePlaceholder": "Select time",
+      "partySize": "Party size",
+      "partySizePlaceholder": "Number of guests",
+      "notes": "Additional notes",
+      "notesPlaceholder": "Allergies, special celebrations, etc.",
+      "submit": "Request reservation",
+      "submitting": "Sending..."
+    },
+    "success": {
+      "title": "Request sent!",
+      "message": "We've received your request. We'll contact you soon to confirm your reservation."
+    },
+    "error": {
+      "title": "Error sending",
+      "message": "An error occurred. Please try again or contact us directly."
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "nameMin": "Name must be at least 2 characters",
+      "phoneRequired": "Phone is required",
+      "phoneInvalid": "Please enter a valid phone number",
+      "emailInvalid": "Please enter a valid email",
+      "dateRequired": "Date is required",
+      "timeRequired": "Time is required",
+      "partySizeRequired": "Party size is required",
+      "partySizeMin": "Minimum 1 person",
+      "partySizeMax": "Maximum 20 people. For larger groups, call us."
+    },
+    "orContact": "Or contact us directly"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "Discover La Rufeta",
+    "description": "Explore our restaurant, terrace, and dishes.",
+    "placeholder": "More photos coming soon",
+    "uploadNote": "(Images will be added soon)"
+  },
+  "events": {
+    "title": "Events & Promotions",
+    "subtitle": "Stay updated on everything happening at La Rufeta",
+    "loyaltyCard": {
+      "title": "Loyalty Card",
+      "subtitle": "Your loyalty is rewarded",
+      "description": "With our Loyalty Card, every daily menu and breakfast counts. After 10 stamps, the next one is completely free. Ask for your card at the bar!",
+      "cta": "Ask at the restaurant"
+    },
+    "noEvents": "No events currently scheduled.",
+    "stayTuned": "Follow us to stay updated!"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Come visit us",
+    "address": {
+      "title": "Address",
+      "value": "Av. del Camino de Santiago, 21\n28050 Madrid"
+    },
+    "phone": {
+      "title": "Phone",
+      "value": "+34 676 93 93 54"
+    },
+    "hours": {
+      "title": "Hours",
+      "pending": "(To be confirmed)",
+      "weekdays": "Monday to Friday: --:-- - --:--",
+      "weekends": "Saturday and Sunday: --:-- - --:--"
+    },
+    "getHere": {
+      "title": "How to get here",
+      "description": "We're in the Las Tablas neighborhood, on Avenida del Camino de Santiago. Easy access by public transport and nearby parking."
+    },
+    "mapTitle": "Find us"
+  },
+  "legal": {
+    "title": "Legal Information",
+    "privacy": {
+      "title": "Privacy Policy",
+      "content": "At La Rufeta, we respect your privacy. The data you provide through the reservation form is used exclusively to manage your booking and is not shared with third parties.\n\nData Controller: La Rufeta\nPurpose: Reservation management\nRights: Access, rectification, erasure, restriction, portability, and objection.\n\nTo exercise your rights, contact us at +34 676 93 93 54."
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "content": "This website uses technical cookies necessary for its operation. Optionally, we use analytics cookies to improve your experience.\n\nTechnical cookies: Required for the site to function.\nAnalytics cookies: We use Plausible Analytics (privacy-friendly, no persistent cookies).\n\nYou can manage your cookie preferences at any time."
+    },
+    "terms": {
+      "title": "Legal Notice",
+      "content": "This website is owned by La Rufeta, a hospitality establishment located at Av. del Camino de Santiago, 21, 28050 Madrid.\n\nThe information on this site is for informational purposes only. Prices, hours, and availability may change without notice.\n\nFor reservations and confirmations, please contact the establishment directly."
+    }
+  },
+  "cookie": {
+    "message": "We use cookies to improve your experience.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "moreInfo": "More info"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "madeWith": "Made with",
+    "inMadrid": "in Las Tablas, Madrid"
+  },
+  "whatsapp": {
+    "defaultMessage": "Hello, I'd like to book a table at La Rufeta for [date] at [time] for [people]."
+  },
+  "errors": {
+    "404": {
+      "title": "Page not found",
+      "description": "The page you're looking for doesn't exist.",
+      "cta": "Back to home"
+    }
+  }
+}
