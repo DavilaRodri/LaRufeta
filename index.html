@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>La Rufeta · Bar restaurante en Las Tablas, Madrid</title>
-<meta name="description" content="Bar restaurante en Las Tablas (Madrid). Menú del día casero, raciones, carnes de Ávila y amplia terraza. Av. del Camino de Santiago, 21. Abierto todos los días de 9:00 a 1:00.">
-<meta name="theme-color" content="#0b2a47">
+<meta name="description" content="Bar restaurante en Las Tablas (Madrid). Menú del día, raciones y carnes de Ávila. Av. del Camino de Santiago, 21. Abierto todos los días de 9:00 a 1:00.">
+<meta name="theme-color" content="#12263d">
 <meta property="og:title" content="La Rufeta · Bar restaurante en Las Tablas">
-<meta property="og:description" content="Menú del día, carta, celebraciones y reservas.">
+<meta property="og:description" content="El menú de hoy, la carta, celebraciones y reservas.">
 <meta property="og:image" content="https://davilarodri.github.io/LaRufeta/img/og.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=boska@400,500,400i&amp;display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://tumenu.bar">
-<link rel="stylesheet" href="css/estilo.css?v=8">
+<link rel="stylesheet" href="css/estilo.css?v=9">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Restaurant","name":"La Rufeta","image":"https://davilarodri.github.io/LaRufeta/img/og.jpg","servesCuisine":"Española","priceRange":"10-20 €","telephone":"+34676939354","address":{"@type":"PostalAddress","streetAddress":"Av. del Camino de Santiago, 21","postalCode":"28050","addressLocality":"Madrid","addressRegion":"Madrid","addressCountry":"ES"},"geo":{"@type":"GeoCoordinates","latitude":40.4994552,"longitude":-3.6752028},"openingHours":"Mo-Su 09:00-01:00","acceptsReservations":true,"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.2","reviewCount":"162"}}
@@ -23,165 +23,142 @@
 </head>
 <body>
 
-<header class="nav" data-nav>
-  <div class="nav-isla">
-    <a class="nav-marca" href="#inicio" aria-label="La Rufeta, inicio"><img src="img/logo-blanco.svg" alt="La Rufeta" width="132" height="35"></a>
-    <nav class="nav-enlaces" aria-label="Secciones">
-      <a href="#menu">Menú del día</a>
-      <a href="#carta">Carta</a>
-      <a href="#celebraciones">Celebraciones</a>
-      <a href="#galeria">Fotos</a>
-      <a href="#visita">Cómo llegar</a>
-    </nav>
-    <a class="pildora pildora-clara nav-cta" href="#reservar">Reservar</a>
-    <button class="nav-boton" type="button" aria-expanded="false" aria-controls="menu-movil" data-abrir-menu>
-      <span class="sr">Abrir menú</span><i></i><i></i>
-    </button>
-  </div>
-</header>
-
-<div class="menu-movil" id="menu-movil" data-menu-movil hidden>
-  <nav aria-label="Menú">
-    <a href="#menu">Menú del día</a>
+<header class="barra" data-barra>
+  <a class="barra-marca" href="#inicio" aria-label="La Rufeta, inicio">
+    <img class="marca-clara" src="img/logo-blanco.svg" alt="La Rufeta" width="120" height="32">
+    <img class="marca-oscura" src="img/logo.svg" alt="" width="120" height="32">
+  </a>
+  <nav class="barra-enlaces" aria-label="Secciones">
+    <a href="#hoy">Menú de hoy</a>
     <a href="#carta">Carta</a>
-    <a href="#celebraciones">Celebraciones</a>
-    <a href="#galeria">Fotos</a>
-    <a href="#visita">Cómo llegar</a>
-    <a href="#reservar">Reservar</a>
+    <a class="solo-ancho" href="#celebraciones">Celebraciones</a>
+    <a class="solo-ancho" href="#visita">Cómo llegar</a>
   </nav>
-  <p><a href="tel:+34676939354">676 93 93 54</a></p>
-</div>
+  <a class="boton boton-claro barra-llamar" href="tel:+34676939354">Llamar</a>
+</header>
 
 <main id="inicio">
 
-  <!-- Portada -->
-  <section class="portada" aria-labelledby="titular">
-    <img class="portada-foto" src="img/exterior-fachada.jpg" alt="Fachada de La Rufeta al anochecer, en la Av. del Camino de Santiago" width="1600" height="1260" fetchpriority="high">
-    <div class="portada-velo" aria-hidden="true"></div>
-    <div class="portada-texto">
-      <h1 id="titular">Cocina casera en Las Tablas</h1>
-      <p class="portada-sub">Menú del día, raciones y carnes de Ávila. Con terraza amplia y Mahou de tanque.</p>
-      <div class="portada-acciones">
-        <a class="pildora pildora-clara" href="#menu">Ver el menú de hoy <span class="pildora-ico" aria-hidden="true">↓</span></a>
-        <a class="pildora pildora-borde" href="#reservar">Reservar mesa</a>
+  <!-- Portada: el rótulo de la fachada fijo arriba y, debajo, el escaparate donde pasan las fotos de la casa -->
+  <section class="portada" aria-labelledby="nombre" data-portada>
+    <div class="portada-fija">
+      <h1 id="nombre" class="portada-nombre">La Rufeta</h1>
+      <div class="portada-ventana" data-ventana>
+        <img class="activa" src="img/exterior-fachada.jpg" alt="La fachada de La Rufeta al anochecer, con el rótulo azul" width="1600" height="1260" fetchpriority="high" data-fondo="#14273c" style="object-position: 20% 50%">
+        <img src="img/plato-torreznos.jpg" alt="Torreznos con patatas paja" width="1600" height="984" loading="lazy" data-fondo="#2a1f1a" style="object-position: 38% 50%">
+        <img src="img/plato-croquetas.jpg" alt="Croquetas artesanas de jamón" width="1474" height="1600" loading="lazy" data-fondo="#1f2529">
+        <img src="img/plato-carne-patatas.jpg" alt="Carne de Ávila con patatas y pimientos de padrón" width="1200" height="1600" loading="lazy" data-fondo="#2b2420">
       </div>
-    </div>
-    <dl class="portada-datos">
-      <div><dt>Hoy</dt><dd data-estado>Abierto de 9:00 a 1:00</dd></div>
-      <div><dt>Dirección</dt><dd>Av. del Camino de Santiago, 21</dd></div>
-      <div><dt>Google</dt><dd>4,2 de 5 · 162 opiniones</dd></div>
-    </dl>
-  </section>
-
-  <!-- Menú del día -->
-  <section class="menu" id="menu" aria-labelledby="menu-titulo">
-    <div class="menu-lado">
-      <h2 id="menu-titulo" class="r">El menú del día</h2>
-      <p class="menu-fecha r" data-hoy-fecha></p>
-      <p class="menu-texto r">Cocina de mercado que cambia cada día: primero, segundo, postre o café, pan y bebida. Lo publicamos cada mañana en cuanto sale de la cocina.</p>
-      <p class="menu-precio r" data-hoy-precio hidden></p>
-      <div class="menu-acciones r">
-        <a class="pildora pildora-oscura" href="tel:+34676939354" data-reserva-rapida>Guárdame mesa <span class="pildora-ico" aria-hidden="true">→</span></a>
-      </div>
-    </div>
-    <div class="bisel r">
-      <article class="menu-hoja" aria-live="polite">
-        <img class="menu-hoja-logo" src="img/logo.svg" alt="" width="160" height="42">
-        <div class="menu-hoja-cuerpo" data-hoy>
-          <p class="menu-vacio">Cargando el menú de hoy…</p>
+      <div class="portada-pie">
+        <p class="portada-frase">Bar restaurante en la Av. del Camino de Santiago, 21. Menú del día, raciones y carnes de Ávila.</p>
+        <div class="portada-accion">
+          <p class="portada-estado" data-estado>Abierto todos los días de 9:00 a 1:00</p>
+          <a class="boton boton-vino" href="#hoy">Ver el menú de hoy</a>
         </div>
-      </article>
+      </div>
     </div>
   </section>
 
-  <!-- La casa -->
-  <section class="casa" aria-labelledby="casa-titulo">
-    <div class="casa-intro">
-      <h2 id="casa-titulo" class="r">Un bar de barrio, bien hecho</h2>
-      <p class="r">Desayunos desde las nueve, menú a mediodía y raciones para compartir hasta la noche. Producto cuidado, carnes de Ávila, ibéricos de Guijuelo y una carta de vinos que merece la pena.</p>
+  <!-- El menú de hoy, con la hoja de TuMenú -->
+  <section class="hoy" id="hoy" aria-labelledby="hoy-titulo">
+    <div class="hoy-texto">
+      <h2 id="hoy-titulo" class="r">El menú de hoy</h2>
+      <p class="hoy-fecha r" data-hoy-fecha></p>
+      <p class="hoy-precio r" data-hoy-precio hidden></p>
+      <p class="hoy-nota r">Primero, segundo, postre o café y bebida. Cambia cada día y lo publicamos en cuanto sale de la cocina.</p>
+      <div class="hoy-botones r">
+        <a class="boton boton-vino" href="https://wa.me/34676939354" data-reserva-rapida>Guárdame mesa</a>
+        <a class="boton boton-linea" href="tel:+34676939354">Llamar</a>
+      </div>
     </div>
-    <div class="casa-rejilla">
-      <figure class="casa-a r"><div class="bisel"><img src="img/interior-barra.jpg" alt="La barra y el botellero de La Rufeta" width="1600" height="1200" loading="lazy"></div><figcaption>La barra, con Mahou de tanque y vinos por copas.</figcaption></figure>
-      <figure class="casa-b r"><div class="bisel"><img src="img/plato-torreznos.jpg" alt="Torreznos con patatas paja" width="1600" height="984" loading="lazy"></div><figcaption>Una tapa con cada consumición.</figcaption></figure>
-      <figure class="casa-c r"><div class="bisel"><img src="img/plato-carne-patatas.jpg" alt="Carne a la brasa con patatas y pimientos" width="1200" height="1600" loading="lazy"></div><figcaption>Carnes de Ávila para compartir.</figcaption></figure>
-    </div>
+    <article class="hoy-hoja r" aria-live="polite" data-hoja>
+      <div class="hoy-hoja-texto" data-hoy>
+        <p class="hoy-vacio">Cargando el menú de hoy…</p>
+      </div>
+    </article>
   </section>
 
-  <!-- Carta -->
+  <!-- La carta -->
   <section class="carta" id="carta" aria-labelledby="carta-titulo">
-    <div class="carta-cabeza">
-      <h2 id="carta-titulo" class="r">La carta</h2>
-      <div class="carta-pestanas r" role="tablist" aria-label="Secciones de la carta" data-carta-tabs></div>
+    <h2 id="carta-titulo" class="carta-titulo r">Raciones, huevos rotos y carnes de Ávila</h2>
+    <div class="carta-mesa">
+      <figure class="carta-foto r"><img data-carta-foto src="img/plato-croquetas.jpg" alt="" width="1200" height="1500" loading="lazy"></figure>
+      <div class="carta-grupos r" role="tablist" aria-label="Secciones de la carta" data-carta-tabs></div>
+      <div class="carta-panel r" role="tabpanel" data-carta-panel tabindex="0"></div>
     </div>
-    <div class="carta-cuerpo">
-      <div class="bisel bisel-oscuro carta-foto"><img data-carta-foto src="img/plato-croquetas.jpg" alt="" width="1200" height="1300" loading="lazy"></div>
-      <div class="carta-panel" role="tabpanel" data-carta-panel tabindex="0"></div>
+    <p class="carta-pie">Precios con IVA incluido. Pregunta por los alérgenos en la barra.</p>
+  </section>
+
+  <!-- La casa: banda de fotos desiguales -->
+  <section class="casa" aria-labelledby="casa-titulo">
+    <h2 id="casa-titulo" class="casa-titulo r">Así es la casa</h2>
+    <div class="casa-banda">
+      <figure class="casa-panel" style="--g:5">
+        <img src="img/interior-barra.jpg" alt="La barra y el botellero de La Rufeta" width="1600" height="1200" loading="lazy">
+        <figcaption>Mahou de grifo<br>y vinos por copas</figcaption>
+      </figure>
+      <figure class="casa-panel" style="--g:2"><img src="img/plato-huevos-rotos-gambas.jpg" alt="Huevos rotos con gambas" width="1600" height="1576" loading="lazy"></figure>
+      <figure class="casa-panel" style="--g:3"><img src="img/plato-huevos-rotos-jamon.jpg" alt="Huevos rotos con jamón ibérico de Guijuelo" width="1200" height="1600" loading="lazy"></figure>
+      <figure class="casa-panel" style="--g:2"><img src="img/postre-coulant-chocolate.jpg" alt="Coulant de chocolate con helado de vainilla" width="1600" height="1295" loading="lazy"></figure>
     </div>
-    <p class="carta-pie">Precios con IVA incluido. Consulta alérgenos al personal de sala.</p>
+    <p class="casa-pie r">Desayunos desde las nueve, menú a mediodía y raciones para compartir hasta la noche. Con cada consumición, tapa.</p>
   </section>
 
   <!-- Celebraciones -->
   <section class="celebraciones" id="celebraciones" aria-labelledby="cel-titulo">
-    <div class="celebraciones-cabeza">
-      <h2 id="cel-titulo" class="r">Celebraciones</h2>
-      <p class="r">Comidas de empresa, cumpleaños y fechas señaladas. Cuéntanos qué necesitas y te preparamos la mesa.</p>
-    </div>
+    <h2 id="cel-titulo" class="r">Celebraciones</h2>
+    <p class="celebraciones-intro r">Comidas de empresa, cumpleaños y fechas señaladas. Cuéntanos qué necesitas y te preparamos la mesa.</p>
     <div class="celebraciones-lista" data-promos></div>
   </section>
 
   <!-- Opiniones -->
   <section class="opiniones" aria-labelledby="op-titulo">
-    <div class="opiniones-nota r">
-      <p class="opiniones-cifra">4,2</p>
-      <h2 id="op-titulo">162 opiniones en Google</h2>
-      <a class="enlace enlace-claro" href="https://www.google.com/maps/place/La+Rufeta/@40.4994552,-3.6752028,17z/data=!4m6!3m5!1s0xd422b00755a8a49:0x79896edd97203df6!8m2!3d40.4994552!4d-3.6752028!16s%2Fg%2F11yn4zmg1j" target="_blank" rel="noopener">Leer todas</a>
-    </div>
-    <div class="opiniones-lista" data-resenas></div>
+    <h2 id="op-titulo" class="sr">Opiniones en Google</h2>
+    <div class="opiniones-campo" data-resenas></div>
   </section>
 
-  <!-- Galería -->
-  <section class="galeria" id="galeria" aria-labelledby="gal-titulo">
-    <h2 id="gal-titulo" class="r">De la cocina</h2>
-    <div class="galeria-rejilla" data-galeria></div>
+  <!-- Fotos -->
+  <section class="fotos" id="fotos" aria-labelledby="fotos-titulo">
+    <h2 id="fotos-titulo" class="fotos-titulo">De la cocina, <span data-fotos-n></span></h2>
+    <div class="fotos-fila" data-fotos tabindex="0" aria-label="Fotos de los platos, desliza para ver más"></div>
   </section>
 
-  <!-- Visita y reserva -->
+  <!-- Visita -->
   <section class="visita" id="visita" aria-labelledby="visita-titulo">
-    <div class="visita-info">
-      <h2 id="visita-titulo" class="r">Cómo llegar</h2>
-      <p class="visita-dir r">Av. del Camino de Santiago, 21<br>28050 Madrid · Las Tablas</p>
-      <dl class="visita-horario r" data-horario></dl>
-      <div class="visita-acciones r" id="reservar">
-        <h3>Reservar</h3>
-        <p>Llámanos o escríbenos por WhatsApp. Para grupos, mejor con un día de antelación.</p>
-        <div class="visita-botones">
-          <a class="pildora pildora-oscura" href="tel:+34676939354">Llamar al 676 93 93 54 <span class="pildora-ico" aria-hidden="true">→</span></a>
-          <a class="pildora pildora-borde-oscuro" href="https://wa.me/34676939354" data-wa target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-      </div>
-    </div>
-    <div class="visita-columna-mapa r">
-    <div class="bisel visita-mapa">
+    <h2 id="visita-titulo" class="sr">Cómo llegar y reservar</h2>
+    <ul class="visita-filas">
+      <li><span>La Rufeta</span></li>
+      <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=La+Rufeta+Av.+del+Camino+de+Santiago+21+Madrid" target="_blank" rel="noopener">Av. del Camino de Santiago, 21</a></li>
+      <li><span>28050 Madrid · Las Tablas</span></li>
+      <li><span data-horario-linea>Todos los días, 9:00 a 1:00</span></li>
+      <li><a href="tel:+34676939354">676 93 93 54</a></li>
+      <li class="visita-reserva"><span>Reserva</span><a class="redondo" href="https://wa.me/34676939354" data-wa target="_blank" rel="noopener" aria-label="Reservar por WhatsApp">→</a></li>
+    </ul>
+    <div class="visita-mapa">
       <iframe title="Mapa: La Rufeta, Av. del Camino de Santiago 21, Madrid" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
         src="https://www.google.com/maps?q=La+Rufeta,+Av.+del+Camino+de+Santiago+21,+28050+Madrid&amp;z=16&amp;output=embed"></iframe>
-    </div>
-    <a class="visita-mapa-enlace enlace" href="https://www.google.com/maps/dir/?api=1&amp;destination=La+Rufeta+Av.+del+Camino+de+Santiago+21+Madrid" target="_blank" rel="noopener">Cómo llegar con Google Maps</a>
     </div>
   </section>
 
 </main>
 
 <footer class="pie">
-  <img class="pie-logo" src="img/logo-blanco.svg" alt="La Rufeta, bar restaurante" width="520" height="138" loading="lazy">
-  <div class="pie-columnas">
-    <p>Av. del Camino de Santiago, 21<br>28050 Madrid</p>
-    <p><a href="tel:+34676939354">676 93 93 54</a><br><a href="https://wa.me/34676939354" target="_blank" rel="noopener">WhatsApp</a></p>
-    <p>Todos los días<br>de 9:00 a 1:00</p>
+  <div class="pie-arriba">
+    <div class="pie-invitacion">
+      <p class="pie-frase">¿Comemos hoy?</p>
+      <a class="boton boton-vino" href="tel:+34676939354">Llamar al 676 93 93 54</a>
+    </div>
+    <ul class="pie-enlaces">
+      <li><a href="https://wa.me/34676939354" data-wa target="_blank" rel="noopener">WhatsApp</a></li>
+      <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=La+Rufeta+Av.+del+Camino+de+Santiago+21+Madrid" target="_blank" rel="noopener">Cómo llegar</a></li>
+      <li><a href="https://www.google.com/maps/place/La+Rufeta/@40.4994552,-3.6752028,17z/data=!4m6!3m5!1s0xd422b00755a8a49:0x79896edd97203df6!8m2!3d40.4994552!4d-3.6752028!16s%2Fg%2F11yn4zmg1j" target="_blank" rel="noopener">Opiniones en Google</a></li>
+    </ul>
   </div>
-  <p class="pie-legal">© <span data-anio>2026</span> La Rufeta · El menú del día se publica con <a href="https://tumenu.bar" target="_blank" rel="noopener">TuMenú</a></p>
+  <p class="pie-legal"><span>© <span data-anio>2026</span> La Rufeta · Av. del Camino de Santiago, 21, Madrid</span><span>El menú del día se publica con <a href="https://tumenu.bar" target="_blank" rel="noopener">TuMenú</a></span></p>
+  <p class="pie-nombre" aria-hidden="true">La Rufeta</p>
 </footer>
 
-<script src="js/datos.js?v=6"></script>
-<script src="js/app.js?v=8"></script>
+<script src="js/datos.js?v=7"></script>
+<script src="js/app.js?v=9"></script>
 </body>
 </html>

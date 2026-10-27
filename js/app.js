@@ -34,7 +34,7 @@
     }
     if (abierto) {
       n.textContent = 'Abierto ahora · hasta la' + (abierto === '01:00' ? '' : 's') + ' ' + hora(abierto);
-      n.classList.add('estado-abierto');
+      n.classList.add('abierto');
       return;
     }
     for (var i = 0; i < 7; i++) {
@@ -46,16 +46,12 @@
     }
   }
 
-  // ---------- Horario ----------
+  // ---------- Horario (fila de la dirección) ----------
   function pintarHorario() {
-    var dl = $('[data-horario]'); if (!dl) return;
-    var txt = function (h) { return h ? hora(h.abre) + ' a ' + hora(h.cierra) : 'Cerrado'; };
-    var orden = [1, 2, 3, 4, 5, 6, 0];
-    var vals = orden.map(function (d) { return txt(D.horario[d]); });
-    var filas = vals.every(function (v) { return v === vals[0]; })
-      ? [['Todos los días', vals[0]]]
-      : orden.map(function (d, i) { return [DIAS[d].charAt(0).toUpperCase() + DIAS[d].slice(1), vals[i]]; });
-    filas.forEach(function (f) { dl.appendChild(el('dt', null, f[0])); dl.appendChild(el('dd', null, f[1])); });
+    var n = $('[data-horario-linea]'); if (!n || !D.horario) return;
+    var txt = function (h) { return h ? hora(h.abre) + ' a ' + hora(h.cierra) : 'cerrado'; };
+    var vals = [1, 2, 3, 4, 5, 6, 0].map(function (d) { return txt(D.horario[d]); });
+    if (vals.every(function (v) { return v === vals[0]; })) n.textContent = 'Todos los días, ' + vals[0];
   }
 
   // ---------- Menú del día (TuMenú) ----------
@@ -71,8 +67,8 @@
     var url = D.tumenu.api + encodeURIComponent(D.tumenu.slug);
     var vacio = function (msg, nota) {
       cuerpo.innerHTML = '';
-      cuerpo.appendChild(el('p', 'menu-vacio', msg));
-      if (nota) cuerpo.appendChild(el('p', 'menu-vacio-nota', nota));
+      cuerpo.appendChild(el('p', 'hoy-vacio', msg));
+      if (nota) cuerpo.appendChild(el('p', 'hoy-vacio-nota', nota));
     };
     fetch(url, { cache: 'no-store' })
       .then(function (r) { if (!r.ok) throw 0; return r.json(); })
@@ -106,10 +102,9 @@
         var src = muestra ? url + '/image.png?sample=1' : url + '/image.png?date=' + A.iso + '&v=' + (firma >>> 0).toString(36);
         var img = new Image();
         img.onload = function () {
-          var hoja = $('.menu-hoja');
+          var hoja = $('[data-hoja]');
           img.className = 'menu-imagen'; img.width = 1080; img.height = 1584;
           img.alt = 'Menú del día de La Rufeta, ' + fechaLarga(A.iso).toLowerCase();
-          cuerpo.classList.add('sr');
           hoja.classList.add('con-imagen');
           hoja.insertBefore(img, hoja.firstChild);
         };
@@ -117,8 +112,6 @@
       })
       .catch(function () { vacio('No hemos podido cargar el menú.', 'Llámanos al 676 93 93 54 y te lo contamos.'); });
 
-    var rr = $('[data-reserva-rapida]');
-    if (rr) { rr.href = wa('Hola, ¿me guardáis mesa hoy para el menú del día? Seríamos '); rr.target = '_blank'; rr.rel = 'noopener'; }
   }
 
   // ---------- Carta con pestañas ----------
@@ -132,7 +125,7 @@
       if (activa && tabs.scrollWidth > tabs.clientWidth) tabs.scrollTo({ left: activa.offsetLeft - (tabs.clientWidth - activa.offsetWidth) / 2, behavior: 'smooth' });
       panel.innerHTML = '';
       panel.setAttribute('aria-label', g.grupo);
-      panel.appendChild(el('h3', null, g.grupo));
+      panel.appendChild(el('h3', 'sr', g.grupo));
       if (g.nota) panel.appendChild(el('p', 'carta-nota', g.nota));
       var ul = el('ul', 'carta-lista');
       g.platos.forEach(function (p, i) {
@@ -145,7 +138,7 @@
       if (g.foto && foto.getAttribute('src') !== g.foto) {
         foto.classList.add('cambiando');
         var pre = new Image();
-        pre.onload = function () { foto.src = g.foto; foto.alt = g.grupo; requestAnimationFrame(function () { foto.classList.remove('cambiando'); }); };
+        pre.onload = function () { setTimeout(function () { foto.src = g.foto; foto.alt = g.grupo; requestAnimationFrame(function () { foto.classList.remove('cambiando'); }); }, 250); };
         pre.src = g.foto;
       }
     }
@@ -168,66 +161,81 @@
     var activas = (D.promos || []).filter(function (p) { return A.iso >= p.desde && A.iso <= p.hasta; });
     if (!activas.length) { box.closest('section').hidden = true; return; }
     activas.forEach(function (p, i) {
-      var art = el('article', 'evento r' + (p.imagen ? ' evento-cartel' : '')); art.style.setProperty('--i', i);
-      var bis = el('div', 'bisel');
-      var nuc = el('div', 'evento-nucleo');
-      var img = el('img'); img.src = p.imagen || p.foto; img.alt = p.imagen ? 'Cartel: ' + p.titulo : ''; img.loading = 'lazy'; img.width = 1200; img.height = 1200;
-      if (p.imagen) img.onerror = function () { art.classList.remove('evento-cartel'); img.src = p.foto; img.alt = ''; };
-      nuc.appendChild(img);
+      var art = el('article', 'evento');
+      var fig = el('figure', 'evento-foto r');
+      var img = el('img'); img.src = p.imagen || p.foto; img.alt = p.imagen ? 'Cartel: ' + p.titulo : ''; img.loading = 'lazy'; img.width = 1600; img.height = 1000;
+      if (p.imagen) { art.classList.add('cartel'); img.onerror = function () { art.classList.remove('cartel'); img.src = p.foto; img.alt = ''; }; }
+      fig.appendChild(img);
       var t = el('div', 'evento-texto');
-      if (p.fecha) t.appendChild(el('p', 'evento-fecha', p.fecha));
-      t.appendChild(el('h3', null, p.titulo));
-      if (p.texto) t.appendChild(el('p', null, p.texto));
-      var a = el('a', 'pildora pildora-clara'); a.href = wa('Hola, me interesa: ' + p.titulo + (p.fecha ? ' (' + p.fecha + ')' : '') + '. '); a.target = '_blank'; a.rel = 'noopener';
-      a.appendChild(document.createTextNode(p.accion || 'Reservar'));
-      var ico = el('span', 'pildora-ico', '→'); ico.setAttribute('aria-hidden', 'true'); a.appendChild(ico);
+      if (p.fecha) t.appendChild(el('p', 'evento-fecha r', p.fecha));
+      t.appendChild(el('h3', 'r', p.titulo));
+      if (p.texto) t.appendChild(el('p', 'r', p.texto));
+      var a = el('a', 'boton boton-vino r', p.accion || 'Reservar');
+      a.href = wa('Hola, me interesa: ' + p.titulo + (p.fecha ? ' (' + p.fecha + ')' : '') + '. '); a.target = '_blank'; a.rel = 'noopener';
       t.appendChild(a);
-      nuc.appendChild(t); bis.appendChild(nuc); art.appendChild(bis); box.appendChild(art);
-      observar(art);
+      art.appendChild(fig); art.appendChild(t); box.appendChild(art);
+      $$('.r', art).forEach(function (n, k) { n.style.setProperty('--i', k); observar(n); });
     });
   }
 
-  // ---------- Opiniones ----------
+  // ---------- Opiniones: una grande y dos en las esquinas ----------
   function resenas() {
     var box = $('[data-resenas]'); if (!box) return;
-    (D.resenasDestacadas || []).forEach(function (r, i) {
-      var q = el('blockquote', 'r'); q.style.setProperty('--i', i);
-      q.appendChild(el('p', null, '«' + r.texto + '»'));
-      q.appendChild(el('cite', null, r.autor + ' · Google'));
-      box.appendChild(q); observar(q);
+    var rs = D.resenasDestacadas || []; if (!rs.length) return;
+    var g = D.google || {};
+    var lead = el('div', 'opinion-principal r');
+    var q = el('blockquote'); q.appendChild(el('p', null, '«' + rs[0].texto + '»')); q.appendChild(el('cite', null, rs[0].autor + ' · Google'));
+    lead.appendChild(q);
+    if (g.nota) {
+      var nota = el('p', 'opinion-nota', g.nota + ' de 5 en Google, ' + g.opiniones + ' opiniones. ');
+      var a = el('a', null, 'Leerlas'); a.href = $('.pie-enlaces a[href*="maps/place"]').href; a.target = '_blank'; a.rel = 'noopener';
+      nota.appendChild(a); lead.appendChild(nota);
+    }
+    box.appendChild(lead);
+    rs.slice(1, 3).forEach(function (r, i) {
+      var b = el('blockquote', 'opinion-esquina r'); b.style.setProperty('--i', i + 1);
+      b.appendChild(el('p', null, '«' + r.texto + '»')); b.appendChild(el('cite', null, r.autor + ' · Google'));
+      box.appendChild(b);
     });
+    $$('.r', box).forEach(observar);
   }
 
-  // ---------- Galería ----------
+  // ---------- Fotos: fila que se arrastra ----------
   function galeria() {
-    var box = $('[data-galeria]'); if (!box) return;
-    var orden = ['plato-croquetas', 'plato-huevos-rotos-gambas', 'plato-cachopo-pimientos', 'plato-huevos-rotos-jamon', 'postre-coulant-chocolate'];
-    var fotos = orden.map(function (n) { return (D.fotos || []).filter(function (f) { return f.src.indexOf(n) >= 0; })[0]; }).filter(Boolean);
-    fotos.forEach(function (f, i) {
-      var b = el('div', 'bisel r g' + (i + 1)); b.style.setProperty('--i', i % 3);
-      var im = el('img'); im.src = f.src; im.alt = f.alt || ''; im.loading = 'lazy'; im.width = 1200; im.height = 1200;
-      b.appendChild(im); box.appendChild(b); observar(b);
+    var box = $('[data-fotos]'); if (!box) return;
+    var fotos = D.fotos || [];
+    var n = $('[data-fotos-n]'); if (n) n.textContent = fotos.length + ' fotos';
+    fotos.forEach(function (f) {
+      var fig = el('figure', 'fotos-marco');
+      var im = el('img'); im.src = f.src; im.alt = f.alt || ''; im.loading = 'lazy'; im.width = 800; im.height = 1200; im.draggable = false;
+      if (f.pos) im.style.objectPosition = f.pos;
+      fig.appendChild(im); box.appendChild(fig);
     });
+    // arrastrar con el ratón; en táctil el desplazamiento es nativo
+    var x0 = 0, s0 = 0, abajo = false;
+    box.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse') return; abajo = true; x0 = e.clientX; s0 = box.scrollLeft; box.classList.add('arrastrando'); });
+    window.addEventListener('pointermove', function (e) { if (abajo) box.scrollLeft = s0 - (e.clientX - x0); });
+    window.addEventListener('pointerup', function () { abajo = false; box.classList.remove('arrastrando'); });
   }
 
-  // ---------- Navegación ----------
+  // ---------- Barra y portada ----------
   function navegacion() {
-    var nav = $('[data-nav]'), btn = $('[data-abrir-menu]'), menu = $('[data-menu-movil]');
-    var portada = $('.portada');
-    if ('IntersectionObserver' in window && portada) {
-      new IntersectionObserver(function (es) { nav.classList.toggle('solida', !es[0].isIntersecting); }, { rootMargin: '-80px 0px 0px 0px' }).observe(portada);
+    var barra = $('[data-barra]'), portada = $('[data-portada]');
+    if (!barra || !portada) return;
+    function mirar() { barra.classList.toggle('solida', portada.getBoundingClientRect().bottom < 64); }
+    window.addEventListener('scroll', mirar, { passive: true }); mirar();
+    // el escaparate: al bajar, cada foto de la casa sustituye a la anterior y trae su fondo
+    var fotos = $$('[data-ventana] img'), actual = 0;
+    function escaparate() {
+      var r = portada.getBoundingClientRect(), recorrido = r.height - innerHeight;
+      var k = recorrido > 0 ? Math.min(fotos.length - 1, Math.max(0, Math.floor((-r.top / recorrido) * fotos.length))) : 0;
+      if (k === actual) return;
+      fotos[actual].classList.remove('activa'); fotos[k].classList.add('activa'); actual = k;
+      if (fotos[k].loading === 'lazy') fotos[k].loading = 'eager';
+      portada.style.backgroundColor = fotos[k].dataset.fondo || '';
     }
-    function cerrar() {
-      btn.setAttribute('aria-expanded', 'false'); menu.classList.remove('abierto'); document.body.style.overflow = '';
-      setTimeout(function () { if (btn.getAttribute('aria-expanded') === 'false') menu.hidden = true; }, 350);
-    }
-    btn.addEventListener('click', function () {
-      if (btn.getAttribute('aria-expanded') === 'true') { cerrar(); return; }
-      menu.hidden = false; btn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden';
-      requestAnimationFrame(function () { requestAnimationFrame(function () { menu.classList.add('abierto'); }); });
-    });
-    $$('a', menu).forEach(function (a) { a.addEventListener('click', cerrar); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') cerrar(); });
+    window.addEventListener('scroll', escaparate, { passive: true });
+    fotos.slice(1).forEach(function (f) { f.loading = 'eager'; });
   }
 
   // ---------- Entradas al hacer scroll ----------
@@ -242,6 +250,8 @@
   }
 
   $$('[data-wa]').forEach(function (a) { a.href = wa('Hola, quería reservar mesa para '); });
+  var rr = $('[data-reserva-rapida]');
+  if (rr) { rr.href = wa('Hola, ¿me guardáis mesa hoy para el menú del día? Seríamos '); rr.target = '_blank'; rr.rel = 'noopener'; }
   var anio = $('[data-anio]'); if (anio) anio.textContent = A.iso.slice(0, 4);
 
   estadoAbierto(); pintarHorario(); menuHoy(); carta(); promos(); resenas(); galeria(); navegacion(); entradas();
