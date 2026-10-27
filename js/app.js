@@ -221,7 +221,7 @@
   // ---------- Navegación ----------
   function navegacion() {
     var nav = $('[data-nav]'), btn = $('[data-abrir-menu]'), menu = $('[data-menu-movil]');
-    var portada = $('.portada');
+    var portada = $('.portada-foto');
     if ('IntersectionObserver' in window && portada) {
       new IntersectionObserver(function (es) { nav.classList.toggle('solida', !es[0].isIntersecting); }, { rootMargin: '-80px 0px 0px 0px' }).observe(portada);
     }

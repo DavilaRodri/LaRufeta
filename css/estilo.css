@@ -330,7 +330,7 @@ p, figure, dl, dd { margin: 0; }
   .cab { height: 68px; }
   .cab.solida { height: 60px; }
   .cab-marca img { width: 124px; }
-  .portada { min-height: auto; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0; background: var(--piedra); }
+  .portada { min-height: auto; padding: 0 0 56px; display: grid; grid-template-columns: 1fr; gap: 0; background: var(--piedra); }
   .portada-foto { position: relative; grid-area: 1 / 1; height: 80svh; min-height: 560px; }
   .portada-foto::after { background: linear-gradient(0deg, rgba(6,22,40,.9) 0%, rgba(6,22,40,.4) 55%, rgba(6,22,40,.5) 100%); }
   .portada-texto { grid-area: 1 / 1; align-self: end; padding: 0 var(--m) 76px; }
@@ -339,6 +339,8 @@ p, figure, dl, dd { margin: 0; }
   .portada-acciones { margin-top: 24px; }
   .portada-acciones .boton { flex: 1 1 auto; padding: 0 18px; }
   .ticket { margin: -44px var(--m) 0; max-width: none; padding: 24px 22px 22px; }
+  .ticket-grupo { display: none; }
+  .ticket-titulo { margin-top: 14px; }
   .menu-hoja { transform: rotate(0); padding: 32px 24px; }
   .menu-fecha { font-size: 1.6rem; }
   .menu-acciones .boton, .visita-botones .boton { flex: 1 1 100%; }
