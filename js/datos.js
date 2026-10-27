@@ -38,7 +38,7 @@ window.RUFETA = {
       fecha: 'Sábado 31 de octubre',
       texto: 'Celebra Halloween con nosotros. Reserva tu mesa en el comedor o en la terraza.',
       desde: '2026-10-20', hasta: '2026-10-31',
-      imagen: '', foto: 'img/plato-torreznos.jpg',
+      imagen: '', foto: 'img/exterior-fachada.jpg',
       accion: 'Reservar mesa'
     },
     {
@@ -48,14 +48,6 @@ window.RUFETA = {
       desde: '2026-10-20', hasta: '2026-12-23',
       imagen: '', foto: 'img/interior-barra.jpg',
       accion: 'Pedir el menú de Navidad'
-    },
-    {
-      titulo: 'Bono menú y desayuno',
-      fecha: 'Todo el año',
-      texto: 'Por cada 10 menús del día o desayunos, el siguiente es gratis. Pide tu tarjeta en la barra.',
-      desde: '2026-01-01', hasta: '2099-12-31',
-      imagen: 'img/bono.png', foto: 'img/plato-croquetas.jpg',
-      accion: 'Quiero mi tarjeta'
     }
   ],
 
@@ -137,5 +129,13 @@ window.RUFETA = {
     { src: 'img/plato-huevos-rotos-jamon.jpg', alt: 'Huevos rotos con jamón ibérico', plato: true },
     { src: 'img/plato-cachopo-pimientos.jpg', alt: 'Cachopo con pimientos de padrón', plato: true },
     { src: 'img/postre-coulant-chocolate.jpg', alt: 'Coulant de chocolate con helado', plato: true, pie: true }
+  ],
+
+  // Opiniones reales de Google (copiadas tal cual)
+  google: { nota: '4,2', opiniones: 162 },
+  resenasDestacadas: [
+    { texto: 'Un lugar muy agradable, con un muy buen servicio y una comida muy buena. Un menú muy correcto. En la terraza se está fenomenal.', autor: 'Joel Bolancell' },
+    { texto: 'Buen lugar de tapeo y raciones en Las Tablas. Servicio atento y amable. Carta con raciones bien presentadas y ricas. Terraza exterior con ambiente.', autor: 'carisa bel' },
+    { texto: 'Sitio muy limpio, agradable y muy rico todo. Totalmente recomendable.', autor: 'Antonio C' }
   ]
 };
