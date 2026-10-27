@@ -1,172 +1,28 @@
-# La Rufeta - Website
+# La Rufeta · web
 
-Página web moderna para La Rufeta, bar-restaurante en Las Tablas, Madrid.
+Web de La Rufeta, bar restaurante en Las Tablas (Av. del Camino de Santiago, 21, 28050 Madrid).
+Página estática (HTML, CSS y JS sin dependencias), publicada con GitHub Pages.
 
-## 🛠 Stack Tecnológico
+## Qué se actualiza solo
 
-- **Framework**: Next.js 14 (App Router)
-- **Lenguaje**: TypeScript
-- **Estilos**: TailwindCSS
-- **Componentes**: shadcn/ui (personalizado)
-- **i18n**: next-intl (ES + EN)
-- **Formularios**: React Hook Form + Zod
-- **Email**: Resend
+- **Menú del día**: llega de TuMenú (`https://tumenu.bar/api/menu/la-rufeta`). Cuando el bar manda el menú por WhatsApp y pulsa Publicar, la web lo muestra al momento. Si ese día no hay menú, la web lo dice y ofrece llamar.
+- **Abierto ahora / cerrado**: se calcula con el horario y la hora de Madrid.
+- **Promociones**: cada una tiene fechas `desde` y `hasta`; fuera de ellas desaparece sola.
 
-## 🚀 Inicio Rápido
+## Qué se edita a mano: `js/datos.js`
 
-### 1. Instalar dependencias
+- `horario`: apertura y cierre por día.
+- `promos`: título, fecha, texto, fechas de visibilidad y cartel. Los carteles van en `img/promos/` (cuadrados o verticales, JPG de unos 1200 px). Si el cartel no existe, se usa la foto indicada en `foto`.
+- `carta`: grupos y platos con precio.
+- `fotos`: fotos del local y de los platos (en `img/`).
 
-```bash
-npm install
-```
+Después de cambiar CSS o JS, sube el número `?v=` en `index.html` para que los navegadores no usen la versión antigua.
 
-### 2. Configurar variables de entorno
-
-Copia el archivo de ejemplo y configura las variables:
-
-```bash
-cp .env.example .env.local
-```
-
-Variables requeridas:
-- `RESEND_API_KEY` - API key de Resend para envío de emails
-- `RESTAURANT_BOOKINGS_EMAIL` - Email donde recibir las reservas
-- `NEXT_PUBLIC_SITE_URL` - URL del sitio en producción
-
-### 3. Iniciar servidor de desarrollo
-
-```bash
-npm run dev
-```
-
-El sitio estará disponible en [http://localhost:3000](http://localhost:3000)
-
-### 4. Compilar para producción
-
-```bash
-npm run build
-npm start
-```
-
-## 📁 Estructura del Proyecto
+## Probar en local
 
 ```
-src/
-├── app/                    # Rutas y páginas (App Router)
-│   ├── page.tsx           # Página principal
-│   ├── menu/              # Página de carta
-│   ├── reservas/          # Página de reservas
-│   ├── galeria/           # Galería de fotos
-│   ├── eventos/           # Eventos y promociones
-│   ├── contacto/          # Información de contacto
-│   ├── legal/             # Páginas legales
-│   └── admin/             # Panel de administración
-├── components/
-│   ├── ui/                # Componentes base (shadcn)
-│   ├── layout/            # Header, Footer, etc.
-│   └── home/              # Secciones de la home
-├── data/
-│   └── menu.ts            # Datos del menú
-├── i18n/
-│   └── messages/          # Traducciones ES/EN
-└── lib/
-    ├── config.ts          # Configuración del negocio
-    └── utils.ts           # Utilidades
+python3 -m http.server 8000
 ```
+y abrir http://localhost:8000.
 
-## ✅ Checklist de Contenidos
-
-Antes del lanzamiento, actualizar:
-
-### Información del Negocio (`src/lib/config.ts`)
-- [ ] Horario de apertura
-- [ ] CIF/NIF del negocio
-- [ ] Nombre legal completo
-- [ ] Redes sociales (Instagram, Facebook, Google)
-
-### Menú (`src/data/menu.ts`)
-- [ ] Carta de tapas con precios
-- [ ] Menú del día con precio
-- [ ] Carta de bebidas
-- [ ] Desayunos con precios
-
-### Imágenes (`public/images/`)
-- [ ] Logo del establecimiento
-- [ ] Foto hero principal
-- [ ] Fotos del local (8-12 para galería)
-- [ ] Fotos de platos destacados
-
-### Legal
-- [ ] Revisar política de privacidad con abogado
-- [ ] Revisar política de cookies
-- [ ] Revisar aviso legal
-
-### Configuración
-- [ ] Configurar Resend para emails
-- [ ] Añadir dominio en producción
-- [ ] Configurar Google Analytics (opcional)
-
-## 🌍 Internacionalización
-
-El sitio soporta español (por defecto) e inglés.
-
-Los textos están en:
-- `src/i18n/messages/es.json` - Español
-- `src/i18n/messages/en.json` - Inglés
-
-## 📧 Envío de Emails
-
-Se usa [Resend](https://resend.com) para el envío de emails de reserva.
-
-### Modo Desarrollo
-Si no hay API key configurada, los emails se registran en la consola del servidor.
-
-### Modo Producción
-1. Crear cuenta en Resend
-2. Obtener API key
-3. Verificar dominio
-4. Configurar `RESEND_API_KEY` y `RESTAURANT_BOOKINGS_EMAIL`
-
-## 🔐 Seguridad
-
-### Formulario de Reservas
-- Validación con Zod
-- Campo honeypot anti-spam
-- Rate limiting (10 solicitudes/hora por IP)
-- Sanitización de entradas
-
-### Página de Admin
-- Protegida con contraseña
-- Acceder en `/admin/content-checklist`
-- Contraseña por defecto: `larufeta2024`
-- Cambiar en `NEXT_PUBLIC_ADMIN_PASSWORD`
-
-## 📱 Responsive
-
-El diseño es mobile-first y se adapta a:
-- Móviles (< 640px)
-- Tablets (640px - 1024px)
-- Desktop (> 1024px)
-
-## 🎨 Personalización
-
-### Colores (Tailwind)
-Los colores de marca están en `tailwind.config.ts`:
-
-```javascript
-rufeta: {
-  red: '#B91C1C',
-  orange: '#EA580C',
-  cream: '#FEF3C7',
-  brown: '#78350F',
-  gold: '#D97706',
-}
-```
-
-### Fuentes
-- **Sans**: Inter
-- **Display**: Playfair Display
-
-## 📄 Licencia
-
-Propiedad de La Rufeta. Todos los derechos reservados.
+La versión anterior (Next.js, febrero de 2026) está en la rama `nextjs-2026-02`.
