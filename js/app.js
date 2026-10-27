@@ -78,6 +78,9 @@
       .then(function (r) { if (!r.ok) throw 0; return r.json(); })
       .then(function (d) {
         var m = d && d.menu;
+        // ?muestra en la dirección: enseña el diseño con un menú de ejemplo de TuMenú
+        var muestra = /[?&]muestra\b/.test(location.search);
+        if (muestra) m = { precio: '12,50€', primeros: ['Ensalada de la huerta', 'Sopa de marisco', 'Croquetas caseras'], segundos: ['Solomillo a la pimienta', 'Merluza en salsa verde', 'Pollo de corral'], postres: ['Tarta de queso', 'Flan casero', 'Café'] };
         if (!m) {
           vacio('El menú de hoy aún no está publicado.', 'Lo subimos cada mañana. Si tienes prisa, llámanos al 676 93 93 54 y te lo contamos.');
           return;
@@ -100,7 +103,7 @@
         // La versión en texto queda debajo para lectores de pantalla y buscadores.
         var firma = 0, sj = JSON.stringify(m);
         for (var k = 0; k < sj.length; k++) firma = ((firma << 5) - firma + sj.charCodeAt(k)) | 0;
-        var src = url + '/image.png?date=' + A.iso + '&v=' + (firma >>> 0).toString(36);
+        var src = muestra ? url + '/image.png?sample=1' : url + '/image.png?date=' + A.iso + '&v=' + (firma >>> 0).toString(36);
         var piz = $('[data-pizarra]');
         piz.href = src; piz.target = '_blank'; piz.rel = 'noopener'; piz.hidden = false;
         var img = new Image();
