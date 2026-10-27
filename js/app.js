@@ -131,7 +131,7 @@
         b.setAttribute('aria-pressed', i < n ? 'true' : 'false');
       });
       var f = 10 - n;
-      txt.textContent = f === 0 ? 'Tarjeta completa: tu próximo menú o desayuno es gratis.' : 'Llevas ' + n + (n === 1 ? ' sello' : ' sellos') + '. Te ' + (f === 1 ? 'falta 1' : 'faltan ' + f) + ' para el gratis.';
+      txt.textContent = n === 0 ? 'Toca los sellos para ver cuánto te falta.' : f === 0 ? 'Tarjeta completa: tu próximo menú o desayuno es gratis.' : 'Llevas ' + n + (n === 1 ? ' sello' : ' sellos') + '. Te ' + (f === 1 ? 'falta 1' : 'faltan ' + f) + ' para el gratis.';
     }
     box.addEventListener('click', function (e) {
       var b = e.target.closest('.sello[data-i]'); if (!b) return;
