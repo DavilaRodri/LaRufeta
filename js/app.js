@@ -112,6 +112,8 @@
     function mostrar(k, foco) {
       var g = D.carta[k];
       $$('button', tabs).forEach(function (b, i) { b.setAttribute('aria-selected', i === k ? 'true' : 'false'); b.tabIndex = i === k ? 0 : -1; if (i === k && foco) b.focus(); });
+      var activa = $$('button', tabs)[k];
+      if (activa && tabs.scrollWidth > tabs.clientWidth) tabs.scrollTo({ left: activa.offsetLeft - (tabs.clientWidth - activa.offsetWidth) / 2, behavior: 'smooth' });
       panel.innerHTML = '';
       panel.setAttribute('aria-label', g.grupo);
       panel.appendChild(el('h3', null, g.grupo));

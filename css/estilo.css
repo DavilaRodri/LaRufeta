@@ -194,10 +194,10 @@ h2 { font-size: var(--t-h2); }
   align-items: center;
   max-width: calc(var(--ancho) + 2 * var(--m)); margin: 0 auto;
 }
-.menu > * { margin: 0; max-width: none; }
+section.menu > * { margin: 0; max-width: none; }
 .menu-lado { display: grid; gap: 22px; align-content: center; }
 .menu-fecha { font: italic 500 var(--t-h3)/1.2 var(--serif); color: var(--cobre); }
-.menu-texto { font-size: var(--t-lead); color: var(--gris); max-width: 34ch; }
+.menu-texto { font-size: var(--t-lead); color: var(--tinta); max-width: 34ch; }
 .menu-precio { font: 300 clamp(3.5rem, 2.2rem + 4.4vw, 6.5rem)/0.95 var(--sans); letter-spacing: -0.045em; color: var(--marino); }
 .menu-precio small { font: 500 .9rem/1 var(--sans); letter-spacing: 0; color: var(--gris); margin-left: 12px; vertical-align: middle; }
 .menu-acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; margin-top: 8px; }
@@ -217,14 +217,14 @@ h2 { font-size: var(--t-h2); }
 
 /* ---------- La casa ---------- */
 .casa { background: var(--piedra-2); }
-.casa-intro { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 32px clamp(40px, 6vw, 120px); align-items: end; margin-bottom: clamp(56px, 7vw, 96px); }
-.casa-intro h2 { max-width: 12ch; }
-.casa-intro p { font-size: var(--t-lead); color: var(--gris); max-width: 42ch; }
+.casa-intro { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 32px clamp(40px, 6vw, 120px); align-items: end; margin-bottom: clamp(56px, 7vw, 96px); }
+.casa-intro h2 { max-width: 15ch; }
+.casa-intro p { font-size: var(--t-lead); color: var(--tinta); max-width: 42ch; }
 .casa-rejilla { display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: auto auto; gap: 20px; }
 .casa-rejilla figure { margin: 0; display: grid; gap: 14px; align-content: start; }
 .casa-rejilla figcaption { font-size: .92rem; color: var(--gris); padding-left: 10px; }
-.casa-a { grid-column: 1 / 8; grid-row: 1 / 3; }
-.casa-a .bisel { aspect-ratio: 4 / 3.4; }
+.casa-a { grid-column: 1 / 8; grid-row: 1 / 3; grid-template-rows: 1fr auto; }
+.casa-a .bisel { height: 100%; min-height: 0; }
 .casa-b { grid-column: 8 / 13; }
 .casa-b .bisel { aspect-ratio: 16 / 10; }
 .casa-c { grid-column: 8 / 13; }
@@ -265,7 +265,7 @@ h2 { font-size: var(--t-h2); }
 
 /* ---------- Celebraciones ---------- */
 .celebraciones-cabeza { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 24px clamp(40px, 6vw, 120px); align-items: end; margin-bottom: clamp(48px, 6vw, 88px); }
-.celebraciones-cabeza p { font-size: var(--t-lead); color: var(--gris); max-width: 40ch; }
+.celebraciones-cabeza p { font-size: var(--t-lead); color: var(--tinta); max-width: 40ch; }
 .celebraciones-lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 24px; }
 .evento .bisel { height: 100%; }
 .evento-nucleo { position: relative; display: grid; min-height: 520px; background: var(--marino); color: var(--piedra); isolation: isolate; height: 100%; }
@@ -283,7 +283,7 @@ h2 { font-size: var(--t-h2); }
 
 /* ---------- Opiniones ---------- */
 .opiniones { background: var(--marino-2); color: var(--piedra); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(40px, 6vw, 120px); align-items: start; }
-.opiniones > * { margin: 0; max-width: none; }
+section.opiniones > * { margin: 0; max-width: none; }
 .opiniones { padding-left: max(var(--m), calc((100vw - var(--ancho)) / 2)) !important; padding-right: max(var(--m), calc((100vw - var(--ancho)) / 2)) !important; }
 .opiniones-nota { display: grid; gap: 12px; justify-items: start; }
 .opiniones-cifra { font: 300 clamp(5rem, 3.5rem + 5vw, 8.5rem)/0.9 var(--sans); letter-spacing: -0.05em; color: var(--cobre-claro); }
@@ -307,20 +307,21 @@ h2 { font-size: var(--t-h2); }
 
 /* ---------- Visita ---------- */
 .visita { background: var(--piedra-2); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(40px, 6vw, 120px); align-items: stretch; }
-.visita > * { margin: 0; max-width: none; }
+section.visita > * { margin: 0; max-width: none; }
 .visita { padding-left: max(var(--m), calc((100vw - var(--ancho)) / 2)) !important; padding-right: max(var(--m), calc((100vw - var(--ancho)) / 2)) !important; }
 .visita-info { display: grid; gap: 28px; align-content: start; }
 .visita-dir { font: 500 var(--t-h3)/1.25 var(--serif); }
 .visita-horario { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 28px; font-size: var(--t-lead); }
-.visita-horario dt { color: var(--gris); }
+.visita-horario dt { color: var(--tinta); }
 .visita-horario dd { margin: 0; font-weight: 600; }
 .visita-acciones { display: grid; gap: 14px; padding-top: 28px; box-shadow: inset 0 1px 0 rgba(11,42,71,.12); }
 .visita-acciones h3 { font-size: var(--t-h3); }
-.visita-acciones p { color: var(--gris); max-width: 40ch; }
+.visita-acciones p { color: var(--tinta); max-width: 40ch; }
 .visita-botones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+.visita-columna-mapa { display: grid; align-content: start; }
 .visita-mapa { position: relative; min-height: 520px; }
 .visita-mapa iframe { width: 100%; height: 100%; min-height: 504px; border: 0; display: block; filter: grayscale(.4) contrast(1.02); }
-.visita-mapa-enlace { position: absolute; left: 24px; bottom: 24px; }
+.visita-mapa-enlace { margin-top: 14px; display: inline-block; }
 
 /* ---------- Pie ---------- */
 .pie { background: var(--marino); color: var(--piedra); padding: clamp(80px, 10vw, 140px) var(--m) 40px; }
@@ -370,10 +371,9 @@ h2 { font-size: var(--t-h2); }
   .galeria-rejilla { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; gap: 10px; }
   .g1 { grid-column: span 2; grid-row: span 2; }
   .g2, .g3, .g4, .g5 { grid-column: span 1; grid-row: span 1; }
-  .g5 { grid-column: span 2; grid-row: span 2; }
+  .g4, .g5 { grid-column: span 2; grid-row: span 2; }
   .visita-mapa { min-height: 380px; }
   .visita-mapa iframe { min-height: 364px; }
-  .visita-mapa-enlace { left: 16px; right: 16px; bottom: 16px; justify-content: space-between; }
   .pie-columnas { grid-template-columns: 1fr; gap: 20px; }
 }
 
