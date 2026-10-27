@@ -104,8 +104,6 @@
         var firma = 0, sj = JSON.stringify(m);
         for (var k = 0; k < sj.length; k++) firma = ((firma << 5) - firma + sj.charCodeAt(k)) | 0;
         var src = muestra ? url + '/image.png?sample=1' : url + '/image.png?date=' + A.iso + '&v=' + (firma >>> 0).toString(36);
-        var piz = $('[data-pizarra]');
-        piz.href = src; piz.target = '_blank'; piz.rel = 'noopener'; piz.hidden = false;
         var img = new Image();
         img.onload = function () {
           var hoja = $('.menu-hoja');
