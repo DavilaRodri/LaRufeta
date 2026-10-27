@@ -221,9 +221,12 @@
   // ---------- Navegación ----------
   function navegacion() {
     var nav = $('[data-nav]'), btn = $('[data-abrir-menu]'), menu = $('[data-menu-movil]');
-    var portada = $('.portada-foto');
-    if ('IntersectionObserver' in window && portada) {
-      new IntersectionObserver(function (es) { nav.classList.toggle('solida', !es[0].isIntersecting); }, { rootMargin: '-80px 0px 0px 0px' }).observe(portada);
+    // Cabecera sólida en cuanto se baja un poco: así nunca se monta sobre los botones ni la ficha
+    var marca = el('div'); marca.setAttribute('aria-hidden', 'true');
+    marca.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:48px;pointer-events:none';
+    document.body.insertBefore(marca, document.body.firstChild);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) { nav.classList.toggle('solida', !es[0].isIntersecting); }).observe(marca);
     }
     function cerrar() {
       btn.setAttribute('aria-expanded', 'false'); menu.classList.remove('abierto'); document.body.style.overflow = '';
