@@ -46,7 +46,7 @@ window.RUFETA = {
       fecha: 'Del 1 al 23 de diciembre',
       texto: 'La cena de empresa o de amigos, en La Rufeta. Pregúntanos por el menú de Navidad y te guardamos la mesa.',
       desde: '2026-10-20', hasta: '2026-12-23',
-      imagen: '', foto: 'img/interior-barra.jpg',
+      imagen: '', foto: 'img/plato-carne-patatas.jpg',
       accion: 'Pedir el menú de Navidad'
     }
   ],
