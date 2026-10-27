@@ -36,17 +36,17 @@ window.RUFETA = {
     {
       titulo: 'Halloween',
       fecha: 'Sábado 31 de octubre',
-      texto: 'Noche de raciones, música y premio al mejor disfraz. Reserva tu mesa en la terraza.',
+      texto: 'Celebra Halloween con nosotros. Reserva tu mesa en el comedor o en la terraza.',
       desde: '2026-10-20', hasta: '2026-10-31',
-      imagen: 'img/promos/halloween.jpg', foto: 'img/plato-torreznos.jpg',
+      imagen: '', foto: 'img/plato-torreznos.jpg',
       accion: 'Reservar mesa'
     },
     {
       titulo: 'Cenas de Navidad',
       fecha: 'Del 1 al 23 de diciembre',
-      texto: 'Menús cerrados para la cena de empresa o de amigos, desde 8 personas. Pregúntanos por el menú y te guardamos la mesa larga.',
+      texto: 'La cena de empresa o de amigos, en La Rufeta. Pregúntanos por el menú de Navidad y te guardamos la mesa.',
       desde: '2026-10-20', hasta: '2026-12-23',
-      imagen: 'img/promos/navidad.jpg', foto: 'img/interior-barra.jpg',
+      imagen: '', foto: 'img/interior-barra.jpg',
       accion: 'Pedir el menú de Navidad'
     },
     {

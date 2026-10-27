@@ -117,7 +117,7 @@
   function sellos() {
     var box = $('[data-sellos]'); if (!box) return;
     var txt = $('[data-sellos-texto]');
-    var n = 3;
+    var n = 0;
     for (var i = 0; i < 10; i++) {
       var b = document.createElement('button');
       b.type = 'button'; b.className = 'sello'; b.dataset.i = i;
