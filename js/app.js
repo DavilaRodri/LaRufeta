@@ -96,8 +96,23 @@
           var precio = String(m.precio).replace('.', ',').replace(/\s*€$/, ' €');
           var pr = $('[data-hoy-precio]'); pr.textContent = precio; pr.hidden = false;
         }
+        // La imagen del menú con el diseño del bar (la misma que se manda por WhatsApp).
+        // La versión en texto queda debajo para lectores de pantalla y buscadores.
+        var firma = 0, sj = JSON.stringify(m);
+        for (var k = 0; k < sj.length; k++) firma = ((firma << 5) - firma + sj.charCodeAt(k)) | 0;
+        var src = url + '/image.png?date=' + A.iso + '&v=' + (firma >>> 0).toString(36);
         var piz = $('[data-pizarra]');
-        piz.href = url + '/image.png?date=' + A.iso; piz.target = '_blank'; piz.rel = 'noopener'; piz.hidden = false;
+        piz.href = src; piz.target = '_blank'; piz.rel = 'noopener'; piz.hidden = false;
+        var img = new Image();
+        img.onload = function () {
+          var hoja = $('.menu-hoja');
+          img.className = 'menu-imagen'; img.width = 1080; img.height = 1584;
+          img.alt = 'Menú del día de La Rufeta, ' + fechaLarga(A.iso).toLowerCase();
+          cuerpo.classList.add('sr');
+          hoja.classList.add('con-imagen');
+          hoja.insertBefore(img, hoja.firstChild);
+        };
+        img.src = src;
       })
       .catch(function () { vacio('No hemos podido cargar el menú.', 'Llámanos al 676 93 93 54 y te lo contamos.'); });
 

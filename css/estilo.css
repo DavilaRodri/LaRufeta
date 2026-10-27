@@ -208,6 +208,11 @@ section.menu > * { margin: 0; max-width: none; }
   box-shadow: inset 0 1px 1px rgba(255,255,255,.8);
 }
 .menu-hoja-logo { width: 170px; margin: 0 auto 36px; }
+.menu-hoja.con-imagen { padding: 0; background: var(--piedra-2); }
+.menu-hoja.con-imagen .menu-hoja-logo { display: none; }
+.menu-imagen { width: 100%; height: auto; animation: aparece 900ms var(--ease) both; }
+@keyframes aparece { from { opacity: 0; transform: scale(1.02); } }
+.menu .bisel { max-width: 560px; justify-self: center; width: 100%; }
 .menu-hoja-cuerpo { display: grid; gap: 34px; }
 .menu-grupo h3 { font: italic 500 1.65rem/1 var(--serif); color: var(--cobre); margin-bottom: 14px; }
 .menu-grupo ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
