@@ -48,13 +48,13 @@
     var muestra = /[?&]muestra\b/.test(location.search);
     function sinMenu(msg) {
       cajas.forEach(function (c) { c.innerHTML = ''; c.classList.add('sin-menu'); c.appendChild(el('p', 'hoy-vacio', msg)); });
-      $$('[data-hoy-lista]').forEach(function (l) { l.innerHTML = ''; l.appendChild(el('p', 'hoy-vacio', msg)); });
+      $$("[data-hoy-lista]").forEach(function (l) { l.innerHTML = ""; l.hidden = true; });
       $$('[data-hoy-precio]').forEach(function (p) { p.hidden = true; });
     }
     fetch(url, { cache: 'no-store' }).then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (d) {
       var m = d && d.menu;
       if (muestra) m = { precio: '12.50€', primeros: ['Ensalada de la huerta', 'Sopa de marisco', 'Croquetas caseras'], segundos: ['Solomillo a la pimienta', 'Merluza en salsa verde', 'Pollo de corral'], postres: ['Tarta de queso', 'Flan casero', 'Café'] };
-      if (!m) { sinMenu('El menú de hoy aún no está publicado. Lo subimos cada mañana; si tienes prisa, llámanos al 676 93 93 54.'); return; }
+      if (!m) { sinMenu('El menú de hoy aún no está publicado. Lo subimos cada mañana; si tienes prisa, llámanos al 676\u00a093\u00a093\u00a054.'); return; }
       var precio = m.precio ? String(m.precio).replace('.', ',').replace(/\s*€$/, ' €') : '';
       $$('[data-hoy-precio]').forEach(function (p) { if (precio) { p.textContent = precio; p.hidden = false; } });
       var grupos = [['Primeros', m.primeros], ['Segundos', m.segundos], ['Postre o café', m.postres]].filter(function (g) { return g[1] && [].concat(g[1]).length; });
@@ -69,7 +69,7 @@
         img.onload = function () { c.innerHTML = ''; c.appendChild(img); c.classList.add('con-imagen'); };
         img.src = s;
       });
-    }).catch(function () { sinMenu('No hemos podido cargar el menú. Llámanos al 676 93 93 54 y te lo contamos.'); });
+    }).catch(function () { sinMenu('No hemos podido cargar el menú. Llámanos al 676\u00a093\u00a093\u00a054 y te lo contamos.'); });
   })();
 
   // Carta: con pestañas si hay [data-carta-tabs]; si no, entera

@@ -23,7 +23,7 @@ em { font-style: italic; color: var(--az); }
 .btn-linea { box-shadow: inset 0 0 0 1px #c6c0b5; }
 .btn-linea:hover { box-shadow: inset 0 0 0 1px var(--tx); }
 
-.nav { position: fixed; inset: 0 0 auto; z-index: 20; display: flex; align-items: center; gap: 36px; height: 84px; padding: 0 var(--m); background: rgba(251,250,247,0); transition: background-color .4s, height .4s var(--ease), box-shadow .4s; }
+.nav { position: fixed; inset: 0 0 auto; z-index: 20; display: flex; align-items: center; gap: 36px; height: 84px; padding: 0 var(--m); background: rgba(251,250,247,.97); transition: background-color .4s, height .4s var(--ease), box-shadow .4s; }
 .nav.solida { background: rgba(251,250,247,.97); height: 68px; box-shadow: 0 1px 0 var(--ln); }
 .nav-logo img { width: 132px; height: auto; }
 .nav-links { display: flex; gap: 30px; margin-left: auto; font-size: 15px; color: #333; }
